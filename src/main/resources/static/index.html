@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PASSGEN | Password Generator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="/" class="logo">
+            <span class="logo-icon">P</span>
+            PASS<span class="logo-highlight">GEN</span>
+        </a>
+
+        <div class="secure-badge">
+            <span class="status-dot"></span>
+            SECURE GENERATOR
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="eyebrow">
+                <span>✦</span>
+                YOUR DIGITAL SECURITY TOOLKIT
+            </div>
+
+            <h1>
+                Your passwords.<br>
+                <span>Your rules.</span>
+            </h1>
+
+            <p class="subtitle">
+                Create powerful, unpredictable passwords in seconds.
+                Your security starts here.
+            </p>
+
+        </section>
+
+        <!-- Password Generator -->
+        <section class="generator-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <div class="section-label">PASSWORD GENERATOR</div>
+                    <h2>Create a password</h2>
+                </div>
+
+                <div class="shield-icon">♢</div>
+
+            </div>
+
+            <!-- Password Display -->
+            <div class="password-box">
+
+                <div class="password-content">
+
+                    <span class="password-label">
+                        GENERATED PASSWORD
+                    </span>
+
+                    <div class="password-output" id="passwordOutput">
+                        Generating...
+                    </div>
+
+                </div>
+
+                <button class="copy-button"
+                        id="copyButton"
+                        type="button"
+                        title="Copy password"
+                        aria-label="Copy generated password">
+
+                    <svg viewBox="0 0 24 24"
+                         width="21"
+                         height="21"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.8">
+
+                        <rect x="8" y="8"
+                              width="12" height="12" rx="2"/>
+
+                        <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+            <!-- Strength Indicator -->
+            <div class="strength-row">
+
+                <div class="strength-info">
+                    <span class="muted">Password strength</span>
+
+                    <span class="strength-text" id="strengthText">
+                        Waiting
+                    </span>
+                </div>
+
+                <div class="strength-bars">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Password Length -->
+            <div class="length-heading">
+
+                <div>
+                    <h3>Password length</h3>
+                    <p>Choose between 4 and 128 characters</p>
+                </div>
+
+                <span class="length-value" id="lengthValue">20</span>
+
+            </div>
+
+            <input type="range"
+                   id="lengthSlider"
+                   min="4"
+                   max="128"
+                   value="20"
+                   aria-label="Password length">
+
+            <div class="range-labels">
+                <span>4 CHARACTERS</span>
+                <span>128 CHARACTERS</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Character Options -->
+            <h3 class="options-title">Character options</h3>
+
+            <div class="options-grid">
+
+                <label class="option-card">
+
+                    <input type="checkbox"
+                           id="lowercase"
+                           checked>
+
+                    <span class="custom-checkbox"></span>
+
+                    <span class="option-content">
+                        <strong>Lowercase</strong>
+                        <small>a – z</small>
+                    </span>
+
+                    <span class="option-symbol">ab</span>
+
+                </label>
+
+                <label class="option-card">
+
+                    <input type="checkbox"
+                           id="uppercase"
+                           checked>
+
+                    <span class="custom-checkbox"></span>
+
+                    <span class="option-content">
+                        <strong>Uppercase</strong>
+                        <small>A – Z</small>
+                    </span>
+
+                    <span class="option-symbol">AB</span>
+
+                </label>
+
+                <label class="option-card">
+
+                    <input type="checkbox"
+                           id="numbers"
+                           checked>
+
+                    <span class="custom-checkbox"></span>
+
+                    <span class="option-content">
+                        <strong>Numbers</strong>
+                        <small>0 – 9</small>
+                    </span>
+
+                    <span class="option-symbol">123</span>
+
+                </label>
+
+                <label class="option-card">
+
+                    <input type="checkbox"
+                           id="symbols"
+                           checked>
+
+                    <span class="custom-checkbox"></span>
+
+                    <span class="option-content">
+                        <strong>Symbols</strong>
+                        <small>! @ # $ %</small>
+                    </span>
+
+                    <span class="option-symbol">#!</span>
+
+                </label>
+
+            </div>
+
+            <!-- Generate Button -->
+            <button class="generate-button"
+                    id="generateButton"
+                    type="button">
+
+                <span class="sparkle">✦</span>
+
+                Generate password
+
+                <span class="button-arrow">↗</span>
+
+            </button>
+
+            <!-- Messages -->
+            <p class="message" id="message" role="status" aria-live="polite"></p>
+
+            <!-- Footer -->
+            <div class="card-footer">
+
+                <span>✓ Secure random generation</span>
+
+                <span>✓ No password storage</span>
+
+            </div>
+
+        </section>
+
+        <!-- Page Footer -->
+        <footer class="footer">
+
+            <div class="footer-logo">
+                PASSGEN<span>.</span>
+            </div>
+
+            <p>Better passwords. Better protection.</p>
+
+            <div class="footer-note">
+                MADE FOR YOUR DIGITAL SECURITY
+            </div>
+
+        </footer>
+
+    </main>
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>
